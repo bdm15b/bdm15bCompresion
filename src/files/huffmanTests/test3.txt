@@ -1,0 +1,44 @@
+An array declaration has two components: the type and the name. type declares the element type of the array. The element type determines the data type of each element that comprises the array. Like array of int type, we can also create an array of other primitive data types like char, float, double..etc or user defined data type(objects of a class).Thus, the element type for the array determines what type of data the array will hold.
+Example:
+
+// both are valid declarations
+int intArray[]; 
+or int[] intArray; 
+
+byte byteArray[];
+short shortsArray[];
+boolean booleanArray[];
+long longArray[];
+float floatArray[];
+double doubleArray[];
+char charArray[];
+
+// an array of references to objects of
+// the class MyClass (a class created by
+// user)
+MyClass myClassArray[]; 
+
+Object[]  ao,        // array of Object
+Collection[] ca;  // array of Collection
+                     // of unknown type
+
+Although the above first declaration establishes the fact that intArray is an array variable, no array actually exists. It simply tells to the compiler that this(intArray) variable will hold an array of the integer type. To link intArray with an actual, physical array of integers, you must allocate one using new and assign it to intArray.
+
+Instantiating an Array in Java
+
+When an array is declared, only a reference of array is created. To actually create or give memory to array, you create an array like this:The general form of new as it applies to one-dimensional arrays appears as follows:
+
+var-name = new type [size];
+
+Here, type specifies the type of data being allocated, size specifies the number of elements in the array, and var-name is the name of array variable that is linked to the array. That is, to use new to allocate an array, you must specify the type and number of elements to allocate.
+
+Example:
+
+int intArray[];    //declaring array
+intArray = new int[20];  // allocating memory to array
+
+OR
+
+int[] intArray = new int[20]; // combining both statements in one
+
+Note : 

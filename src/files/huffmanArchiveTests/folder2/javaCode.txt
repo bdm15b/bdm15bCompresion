@@ -1,0 +1,46 @@
+
+    public static void main(String args[]) {
+      
+        int [] first = {1,2,3, 4};
+        int [] second = {5,6,7,8};
+      
+        // combine two arrays in Java using Apache commons ArrayUtils
+        int [] combined = ArrayUtils.addAll(first, second);
+     
+        System.out.println("First array : " + Arrays.toString(first));
+        System.out.println("Second array : " + Arrays.toString(second));
+        System.out.println("Combined array : " + Arrays.toString(combined));
+
+    
+        String [] one = {"a", "b", "c"};
+        String [] two = {"d", "e"};
+      
+        //joining array in Java using Guava library
+        String [] joined = ObjectArrays.concat(one, two, String.class);
+        System.out.println("Joined array : " + Arrays.toString(joined));
+      
+        //JDK way to combine two array in Java
+        int[] array1 = {101,102,103,104};
+        int[] array2 = {105,106,107,108};
+        int[] concatenate = combine(array1, array2);
+        System.out.println("concatenated array : " + Arrays.toString(concatenate));
+      
+    }
+  
+ 
+    public static int[] combine(int[] a, int[] b){
+        int length = a.length + b.length;
+        int[] result = new int[length];
+        System.arraycopy(a, 0, result, 0, a.length);
+        System.arraycopy(b, 0, result, a.length, b.length);
+        return result;
+    }
+  
+}
+
+Output:
+First array : [1, 2, 3, 4]
+Second array : [5, 6, 7, 8]
+Combined array : [1, 2, 3, 4, 5, 6, 7, 8]
+Joined array : [a, b, c, d, e]
+concatenated array : [101, 102, 103, 104, 105, 106, 107, 108]
