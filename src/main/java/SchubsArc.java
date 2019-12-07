@@ -37,8 +37,6 @@
  
 
 import java.io.File;
-import java.io.FileNotFoundException;
-
 
 import sedgewick.*;
 
@@ -105,7 +103,8 @@ public class SchubsArc {
 
                 // tar the files into "archive.zh"
                 try {
-                    out = new BinaryOut(archiveName);
+                    //System.out.println(archiveName.substring(0,archiveName.lastIndexOf(".")));
+                    out = new BinaryOut(archiveName.substring(0,archiveName.lastIndexOf(".")));
                     for (int i = 1; i < args.length; i++) {
                         tarFile(args[i], out);
                     }
@@ -116,15 +115,10 @@ public class SchubsArc {
                         out.close();
                 }
 
-                // compress (Huffman) on tar file
-                SchubsH.main(new String[] { archiveName });
-                
-                // rename archive to get extension correct (compresing adds a .hh to archive name)
-                File oldName = new File(archiveName + ".hh");
-                File newName = new File(archiveName);
-                if (!oldName.renameTo(newName))
-                    System.out.println("Error renaming compredd archive");
+                // at this point there is a tar file called <archive> (no extension)
 
+                // compress (Huffman) on tar file (adds ".zh" extension)
+                HelperArcH.main(new String[] { archiveName.substring(0,archiveName.lastIndexOf(".")) });
                 break;
             default:
                 System.out.println("This filetype is not supported");
