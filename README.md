@@ -16,7 +16,7 @@ Clases that I tested:
   - SchubsH.java
   - SchubsL.java
   - SchubsArc.java
-  - Deschubs.java (Does not have own test file since SchubsHTest, SchubsLTest, and SchubsArcTest test and use Deschubs0.
+  - Deschubs.java (Does not have own test file since SchubsHTest, SchubsLTest, and SchubsArcTest test and use Deschubs).
   
   
  C Requirements Met:
@@ -28,4 +28,4 @@ Clases that I tested:
  A Requirements Met:
  - Completed compression and decompression with HuffmanArchive
  
-Documentation regarding each class or testing ideology can be found at the beginning of each .java file.
+Documentation regarding each class or testing ideology can be found at the beginning of each .java files listed above.
