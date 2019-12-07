@@ -9,7 +9,7 @@
  *  to be or not to be (2 left on queue)
  *
  *************************************************************************/
-
+package sedgewick;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 

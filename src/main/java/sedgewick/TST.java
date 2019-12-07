@@ -25,6 +25,7 @@
  *    - can't use a key that is the empty string ""
  *
  *************************************************************************/
+package sedgewick;
 
 public class TST<Value> {
     private int N;       // size
