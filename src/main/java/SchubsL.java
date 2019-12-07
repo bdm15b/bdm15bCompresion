@@ -16,10 +16,17 @@
  *  To Compress a File
  *      > mvn compile
  *      > java -cp target/classes SchubsL <filename>
+ * 
+ *  Example
+ *     This will compress all files in folder4 into thier own *.txt.ll files
+ *     > java -cp target/classes/ SchubsL src/files/lzwTests/*.txt
+ *      
+ *     To uncompress...
+ *     > java -cp target/classes/  Deschubs  src/files/lzwTests/test1.txt.ll
  *  
  *  To Test
- *      > mvn test
- *      Note: tests can be found in src/tests/java
+ *     > mvn test
+ *     Note: tests can be found in src/tests/java
  * 
  * ------------- DESIGN -------------
  *  Overview
@@ -46,9 +53,6 @@
  *          be easily encoded.
  * 
  *      Only have to read through the file once
- * 
- *  NOTE: if you want to remove compressed files, then uncomment the last 
- *  cleanTestDir("ll") in the last test
  */
 
 

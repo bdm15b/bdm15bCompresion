@@ -16,7 +16,14 @@
  *  To Compress a File
  *      > mvn compile
  *      > java -cp target/classes SchubsH <filename>
- *  
+ * 
+ *  Example
+ *     This will compress all files in folder4 into their own *.txt.hh files
+ *     > java -cp target/classes/ SchubsH src/files/huffmanTests/*.txt
+ *      
+ *     To uncompress...
+ *     > java -cp target/classes/ Deschubs src/files/huffmanTests/test1.txt.hh
+ *
  *  To Test
  *      > mvn test
  *      Note: tests can be found in src/tests/java

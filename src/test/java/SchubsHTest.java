@@ -16,6 +16,8 @@
  *      > mvn test
  *      Note: test files can be found in src/files/
  * 
+ *  Note: This files tests all folders in src/files/huffmanTests
+ * 
  * ------------- DESIGN -------------
  *  Overview/Process
  *      1. Delete all .hh files in test dir
@@ -37,7 +39,6 @@
 import sedgewick.*;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -1,41 +1,52 @@
-
 /**
- * ############## HEADER ##############
- * Author: Brighton Mica
- * Date: December 2, 2019
- * Class: Software Engineering 2
- * Prof: Dr. Reeves
+ * ------------- HEADER -------------
+ *  Author: Brighton Mica
+ *  Date: December 6, 2019
+ *  Prof: Dr. Reeves (Software Engineering 2)
+ *  Assignment: Final Compression Project
  * 
- * ############## DESIGN ##############
+ * ------------- CLASS INFO -------------
+ *  Class: SchubsArc
+ *  Dependencies: BinaryIn.java BinaryOut.java MinPQ.java
+ *  Modified Version of Files From: Class Session in SE2
  * 
+ *  ------------- CLI -------------
+ *  Note: "/" or "\" may vary depending on OS
+ *  
+ *  To Compress a File
+ *      > mvn compile
+ *      > java -cp target/classes SchubsArc <archivename>.zh <filename>
+ *  
+ *  To Test
+ *      > mvn test
+ *      Note: tests can be found in src/tests/java
  * 
+ *  Example
+ *      This will compress all files in folder4 into an archive.zh in folder4
+ *      > java -cp target/classes/ SchubsArc src/files/huffmanArchiveTests/folder4/archive.zh src/files/huffmanArchiveTests/folder4/*.txt
+ *      
+ *      To uncompress...
+ *      > java -cp target/classes/ Deschubs src/files/huffmanArchiveTests/folder4/archive.zh
  * 
+ * ------------- DESIGN -------------
+ *  Overview/Process
+ *      Tar files then use Huffman to compress the tar.
+ * 
+ *      Tarring lets us organize multiple files into one according to an agreement (details below).
+ *      This allows for us to compress a single tar file. This is beneficial because we can have only
+ *      one Huffman table if we choose to compress Huffman or more make better use of our table if we 
+ *      choose to compress with lzw.
+ *       
+ *      TARS Agreement
+ *          - (int) filename size
+ *          - separator
+ *          - filename
+ *          - separator
+ *          - (long) file size
+ *          - separator
+ *          - file contents 
  */
-
-/*************************************************************************
- *  Compilation:  javac Huffman.java
- *  Execution:    java Huffman - < input.txt   (compress)
- *  Execution:    java Huffman + < input.txt   (expand)
- *  Dependencies: BinaryIn.java BinaryOut.java
- *  Data files:   http://algs4.cs.princeton.edu/55compression/abra.txt
- *                http://algs4.cs.princeton.edu/55compression/tinytinyTale.txt
- *  modified:     change logging to true to enable debugging info to StdErr
- *
- *
- *  Compress or expand a binary input stream using the Huffman algorithm.
- *
- *  % java Huffman - < abra.txt | java BinaryDump 60
- *  010100000100101000100010010000110100001101010100101010000100
- *  000000000000000000000000000110001111100101101000111110010100
- *  120 bits
- *
- *  % java Huffman - < abra.txt | java Huffman +
- *  ABRACADABRA!
- *
- *************************************************************************/
-
  
-
 import java.io.File;
 
 import sedgewick.*;
@@ -119,6 +130,11 @@ public class SchubsArc {
 
                 // compress (Huffman) on tar file (adds ".zh" extension)
                 HelperArcH.main(new String[] { archiveName.substring(0,archiveName.lastIndexOf(".")) });
+                File del = new File(archiveName.substring(0,archiveName.lastIndexOf(".")));
+                if (del.exists())
+                    if (!del.delete())
+                        System.out.println("didn't delete file");
+                
                 break;
             default:
                 System.out.println("This filetype is not supported");

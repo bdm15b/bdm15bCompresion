@@ -8,7 +8,7 @@
  * ------------- CLASS INFO -------------
  *  Class: SchubsArcTest
  *  Dependencies:   BinaryIn.java BinaryOut.java MinPQ.java 
- *                  SchubsH.java SchubsArc.java Deschubs.java
+ *                  HelperArcH.java SchubsArc.java Deschubs.java
  * 
  *  ------------- CLI -------------
  *  Note: "/" or "\" may vary depending on OS
@@ -17,29 +17,25 @@
  *      > mvn test
  *      Note: test files can be found in src/files/
  * 
+ *  Note: This files tests all folders in src/files/huffmanArchiveTests
+ * 
  * ------------- DESIGN -------------
  *  Overview/Process
- *      OLD files are the oringal file contents. When we test we compress teh orignal
- *      file and rename it by appending OLD to it so you can view the original files (OLD)
- *      and the recently uncompressed files side by side
  * 
- *      1. Delete all .zh and OLD files in test dir
+ *      1. Delete all .zh files in test dir
  *      2. Store test file contents in a map
  *      3. Compress test files → creating .*.zh compressed files
- *      4. Rename the uncompressed test files (OLD)
+ *      4. Delete the uncompressed test files
  *      5. Decompress compressed test files
  *      6. Compare the decompressed content to original test file content stored in map
  * 
  *  Tests
  *      Our test harness covers
- *          - no files
- *          - empty files
  *          - single files
  *          - multiple files
- *          - handling of invalid extensions
- *
- *  NOTE: if you want to remove compressed and OLD files, then uncomment the last 
- *  or add a cleanTestDir("xx") in the bottom of tests
+ *  *
+ *  NOTE: if you want to remove compressed, then uncomment the last 
+ *  or add a cleanTestDir("zh") in the bottom of tests
  */
 
 import sedgewick.*;
@@ -126,12 +122,7 @@ public class SchubsArcTest {
         return false;
     }
 
-
-
-
-
     // -------------------------- TESTS -------------------------- //
-
 
     @Test
     public void folders123Test() throws IOException {
@@ -183,5 +174,6 @@ public class SchubsArcTest {
             for (String filepath : files)
                 assertEquals(getFileContents(filepath), originalContents.get(filepath));
         }
+        // cleanTestDir("zh");
     }
 }

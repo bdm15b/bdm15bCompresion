@@ -21,7 +21,32 @@
  *  
  *  To Test
  *      > mvn test
- *      Note: tests can be found in src/tests/java
+ *      Note: tests can be found in src/tests/java (Deschubs is used in all tests, so it 
+ *      does not require its own testing class)
+ *
+ *  Examples
+ * 
+ *     Huffman
+ *          This will compress all files in folder4 into their own *.txt.hh files
+ *          > java -cp target/classes/ SchubsH src/files/huffmanTests/*.txt
+ * 
+ *          To uncompress...
+ *          > java -cp target/classes/ Deschubs src/files/huffmanTests/test1.txt.hh
+ * 
+ *     LZW
+ *          This will compress all files in folder4 into thier own *.txt.ll files
+ *          > java -cp target/classes/ SchubsL src/files/lzwTests/*.txt
+ *           
+ *          To uncompress...
+ *          > java -cp target/classes/  Deschubs  src/files/lzwTests/test1.txt.ll
+ * 
+ *     Archive
+ *          This will compress all files in folder4 into an archive.zh in folder4
+ *          > java -cp target/classes/ SchubsArc src/files/huffmanArchiveTests/folder4/archive.zh src/files/huffmanArchiveTests/folder4/*.txt
+ *          
+ *          To uncompress...
+ *          > java -cp target/classes/ Deschubs src/files/huffmanArchiveTests/folder4/archive.zh
+ * 
  * 
  * ------------- DESIGN -------------
  *  Overview
@@ -237,7 +262,7 @@ public class Deschubs {
 
     public static void main(String[] args) {
 
-        if (args.length == 0) {
+        if (args.length != 1) {
             System.out.println("Please enter the correct number of arguments");
             return;
         }
